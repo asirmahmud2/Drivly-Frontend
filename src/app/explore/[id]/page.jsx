@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft, FiArrowUpRight, FiCalendar, FiCheck, FiDroplet, FiEdit3, FiMapPin, FiSettings, FiTrash2, FiUsers } from "react-icons/fi";
+import { EditModal } from "@/Components/Functionality/EditModal";
 
 const CarDetails = async ({ params }) => {
     const { id } = await params;
@@ -398,16 +399,7 @@ const CarDetails = async ({ params }) => {
                             </Link>
 
                             {/* Edit */}
-                            <Link
-                                href={`/cars/${data._id}/edit`}
-                                className="group flex min-h-14 items-center justify-center gap-3 rounded-xl border border-[#D9D6CF] bg-[#F9F8F4] px-6 py-3 text-sm font-medium text-[#111214] transition-all duration-300 hover:border-[#C7A76C]/60 hover:bg-[#F4F2ED]"
-                            >
-                                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-[#6F706D] transition-colors duration-300 group-hover:text-[#C7A76C]">
-                                    <FiEdit3 />
-                                </span>
-
-                                <span>Edit Vehicle</span>
-                            </Link>
+                            <EditModal data={data}/>
 
                             {/* Delete */}
                             <button
