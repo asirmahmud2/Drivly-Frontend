@@ -275,14 +275,13 @@ const ExploreCars = async () => {
 
                                     {/* Details */}
                                     <Link
-                                        href={`/cars/${car._id}`}
+                                        href={`/explore/${car._id}`}
                                         className="group/button mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-[#C7A76C] bg-transparent text-sm font-semibold text-[#111214] transition-all duration-300 hover:bg-[#C7A76C] hover:text-[#0B0B0C]"
                                     >
                                         View Details
 
                                         <FiArrowUpRight className="text-base transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
                                     </Link>
-
                                 </div>
                             </article>
                         ))}
