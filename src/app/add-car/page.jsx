@@ -21,6 +21,7 @@ const labelClass = "text-sm font-medium text-[#111214]";
 
 const AddCar = () => {
     const [features, setFeatures] = useState([""]);
+    const [availability, setAvailability] = useState(true);
 
     const addFeature = () => {
         setFeatures([...features, ""]);
@@ -37,10 +38,31 @@ const AddCar = () => {
         setFeatures(updatedFeatures);
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const vehicleData = Object.fromEntries(formData.entries());
+        const raw = Object.fromEntries(formData.entries());
+
+        const vehicleData = {
+            name: raw.vehicleName,
+            brand: raw.brand,
+            model: raw.model,
+            image: raw.imageUrl,
+            year: Number(raw.year),
+            type: raw.vehicleType,
+            color: raw.color,
+            body_style: raw.bodyStyle,
+            daily_rent_price: Number(raw.dailyRent),
+            seat_capacity: Number(raw.seatCapacity),
+            transmission: raw.transmission,
+            fuel_type: raw.fuelType,
+            pickup_location: raw.pickupLocation,
+            availability: availability,
+            booking_count: 0,
+            description: raw.description,
+            key_features: features.filter((f) => f.trim() !== ""),
+        };
+
         console.log("Vehicle Data:", vehicleData);
 
         const res = await fetch("http://localhost:5000/car", {
@@ -247,7 +269,7 @@ const AddCar = () => {
                             </div>
 
                             <div className="rounded-2xl border border-[#EAE7E0] bg-[#F4F2ED]/60 p-5 sm:col-span-2">
-                                <Switch defaultSelected>
+                                <Switch isSelected={availability} onChange={setAvailability}>
                                     <Switch.Content className="flex items-center gap-3">
                                         <Switch.Control>
                                             <Switch.Thumb />
