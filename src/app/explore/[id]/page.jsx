@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft, FiArrowUpRight, FiCalendar, FiCheck, FiDroplet, FiEdit3, FiMapPin, FiSettings, FiTrash2, FiUsers } from "react-icons/fi";
 import { EditModal } from "@/Components/Functionality/EditModal";
+import { DeleteModal } from "@/Components/Functionality/DeleteModal";
 
 const CarDetails = async ({ params }) => {
     const { id } = await params;
@@ -402,16 +403,7 @@ const CarDetails = async ({ params }) => {
                             <EditModal data={data}/>
 
                             {/* Delete */}
-                            <button
-                                type="button"
-                                className="group flex min-h-14 items-center justify-center gap-3 rounded-xl border border-[#A64B45]/20 bg-[#FFFDFC] px-6 py-3 text-sm font-medium text-[#A64B45] transition-all duration-300 hover:border-[#A64B45]/40 hover:bg-[#A64B45]/5"
-                            >
-                                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#A64B45]/5 transition-colors duration-300 group-hover:bg-[#A64B45]/10">
-                                    <FiTrash2 />
-                                </span>
-
-                                <span>Delete Vehicle</span>
-                            </button>
+                            <DeleteModal data={data}></DeleteModal>
 
                         </div>
 

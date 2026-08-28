@@ -17,8 +17,8 @@ const inputClass =
 const labelClass = "text-sm font-medium text-[#111214]";
 
 export function EditModal({ data }) {
-    
-    const {_id} =  data;
+
+    const { _id } = data;
     const [features, setFeatures] = useState(
         data?.key_features?.length ? data.key_features : [""]
     );
@@ -45,13 +45,13 @@ export function EditModal({ data }) {
         });
     };
 
-    const handleSubmit = async(event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const raw = Object.fromEntries(
             new FormData(event.currentTarget).entries()
         );
-        
+
         const vehicleData = {
             name: raw.vehicleName,
             brand: raw.brand,
@@ -89,9 +89,9 @@ export function EditModal({ data }) {
             <Modal.Trigger>
                 <Button
                     variant="outline"
-                    className="group min-h-14 rounded-xl border-[#D9D6CF] bg-[#F9F8F4] px-6 py-3 text-sm font-medium text-[#111214] transition-all duration-300 hover:border-[#C7A76C]/60 hover:bg-[#F4F2ED]"
+                    className="group flex min-h-14 items-center justify-center gap-3 rounded-xl border-[#D9D6CF] bg-[#F9F8F4] px-6 py-3 text-sm font-medium text-[#111214] transition-all duration-300 hover:border-[#C7A76C]/60 hover:bg-[#F4F2ED]"
                 >
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-[#6F706D] transition-colors duration-300 group-hover:text-[#C7A76C]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-[#6F706D] transition-colors duration-300 group-hover:bg-[#C7A76C]/10 group-hover:text-[#C7A76C]">
                         <FiEdit3 />
                     </span>
                     <span>Edit Vehicle</span>
@@ -507,9 +507,8 @@ export function EditModal({ data }) {
                                                             )}
                                                         </div>
                                                         <Input
-                                                            aria-label={`Feature ${
-                                                                index + 1
-                                                            }`}
+                                                            aria-label={`Feature ${index + 1
+                                                                }`}
                                                             value={feature}
                                                             onChange={(event) =>
                                                                 updateFeature(
