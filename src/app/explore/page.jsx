@@ -18,7 +18,7 @@ const ExploreCars = async () => {
     });
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     return (
         <main className="min-h-screen bg-[#F4F2ED]">
