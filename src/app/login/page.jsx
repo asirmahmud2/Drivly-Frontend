@@ -17,9 +17,30 @@ import {
     FiLock,
     FiMail,
 } from "react-icons/fi";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const LoginPages = () => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const router = useRouter();
+
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const user = Object.fromEntries(formData.entries());
+
+        const { data, error } = await authClient.signIn.email({
+            email: user.email,
+            password: user.password,
+        });
+        console.log({ data, error });
+
+        if (data) {
+            router.push('/');
+        }
+    }
+
 
     return (
         <main className="min-h-screen bg-[#F4F2ED]">
@@ -52,7 +73,7 @@ const LoginPages = () => {
                         <div className="absolute inset-0 z-0 lg:hidden">
                             <img
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
-                                alt="Premium DriveFleet vehicle"
+                                alt="Premium Drivly vehicle"
                                 fill
                                 priority
                                 sizes="100vw"
@@ -68,7 +89,7 @@ const LoginPages = () => {
 
                             <img
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
-                                alt="Premium DriveFleet vehicle"
+                                alt="Premium Drivly vehicle"
                                 fill
                                 priority
                                 sizes="50vw"
@@ -86,7 +107,7 @@ const LoginPages = () => {
                                 <div className="max-w-md">
 
                                     <p className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#C7A76C]">
-                                        DriveFleet
+                                        Drivly
                                     </p>
 
                                     <h2 className="mt-4 text-3xl font-semibold leading-[1.05] tracking-tight text-[#F4F2ED] xl:text-4xl">
@@ -138,7 +159,7 @@ const LoginPages = () => {
                                 {/* MOBILE BRAND */}
                                 <div className="mb-6 lg:hidden">
                                     <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#C7A76C]">
-                                        DriveFleet
+                                        Drivly
                                     </span>
                                 </div>
 
@@ -158,7 +179,7 @@ const LoginPages = () => {
 
                                     <p className="mt-3 max-w-sm text-sm leading-6 text-white/70 lg:mt-5 lg:leading-7 lg:text-[#6F706D]">
                                         Sign in to continue exploring premium
-                                        vehicles and managing your DriveFleet
+                                        vehicles and managing your Drivly
                                         experience.
                                     </p>
                                 </div>
@@ -168,7 +189,7 @@ const LoginPages = () => {
                                 {/* Authentication functionality intentionally not implemented yet. */}
 
                                 <form
-                                    // onSubmit={handleLogin}
+                                    onSubmit={handleLogin}
                                     className="mt-6 lg:mt-9"
                                 >
 
@@ -193,7 +214,7 @@ const LoginPages = () => {
                                                 id="email"
                                                 placeholder="you@example.com"
                                                 autoComplete="email"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
                                         </InputGroup>
                                     </TextField>
@@ -224,7 +245,7 @@ const LoginPages = () => {
                                                 }
                                                 placeholder="Enter your password"
                                                 autoComplete="current-password"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
 
                                             <InputGroup.Suffix>
@@ -299,7 +320,7 @@ const LoginPages = () => {
 
                                     {/* REGISTER */}
                                     <p className="mt-6 text-center text-sm text-white/70 lg:mt-8 lg:text-[#6F706D]">
-                                        New to DriveFleet?
+                                        New to Drivly?
 
                                         <Link
                                             href="/register"
@@ -315,7 +336,7 @@ const LoginPages = () => {
                                 <div className="mt-6 border-t border-white/10 pt-4 lg:mt-10 lg:border-[#EAE7E0] lg:pt-5">
                                     <p className="text-center text-[10px] leading-5 text-white/45 lg:text-[#92938F]">
                                         By continuing, you agree to the
-                                        DriveFleet experience and our
+                                        Drivly experience and our
                                         <span className="mx-1 text-white/70 lg:text-[#6F706D]">
                                             Terms
                                         </span>

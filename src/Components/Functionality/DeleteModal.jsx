@@ -17,18 +17,18 @@ export function DeleteModal({ data }) {
     const router = useRouter();
 
     const handleDelete = async () => {
-            const res = await fetch(`http://localhost:5000/cars/${_id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (!res.ok) {
-                throw new Error("Failed to delete vehicle");
-            }
-            const result = await res.json();
-            // console.log("Server Response:", result);
-            router.push("/explore");
+        const res = await fetch(`http://localhost:5000/cars/${_id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (!res.ok) {
+            throw new Error("Failed to delete vehicle");
+        }
+        const result = await res.json();
+        // console.log("Server Response:", result);
+        router.push("/explore");
     };
 
     return (
@@ -113,7 +113,7 @@ export function DeleteModal({ data }) {
                             <p className="mt-4 max-w-md text-sm leading-7 text-[#F4F2ED]/50">
 
                                 This will permanently remove the listing and
-                                its information from DriveFleet. This action
+                                its information from Drivly. This action
                                 cannot be undone.
 
                             </p>

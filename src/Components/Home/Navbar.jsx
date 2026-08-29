@@ -89,7 +89,7 @@ const Navbar = () => {
                         >
                             <Image
                                 src="https://i.ibb.co.com/Ldkv5hVf/Chat-GPT-Image-Aug-26-2026-12-17-56-PM.png"
-                                alt="DriveFleet Logo"
+                                alt="Drivly Logo"
                                 width={260}
                                 height={260}
                                 className="h-18 w-70 object-contain"

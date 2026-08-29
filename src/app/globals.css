@@ -1,3 +1,33 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
 @plugin "daisyui";
+
+@layer components {
+  .login-input,
+  #email,
+  #password {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+  .login-input::placeholder,
+  #email::placeholder,
+  #password::placeholder {
+    color: rgb(255 255 255 / 0.4) !important;
+    -webkit-text-fill-color: rgb(255 255 255 / 0.4) !important;
+  }
+
+  @media (min-width: 1024px) {
+    .login-input,
+    #email,
+    #password {
+      color: #111214 !important;
+      -webkit-text-fill-color: #111214 !important;
+    }
+    .login-input::placeholder,
+    #email::placeholder,
+    #password::placeholder {
+      color: #9a9b97 !important;
+      -webkit-text-fill-color: #9a9b97 !important;
+    }
+  }
+}

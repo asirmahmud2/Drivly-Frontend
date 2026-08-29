@@ -5,15 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, FieldError, Form, InputGroup, Label, TextField } from "@heroui/react";
 import { FiArrowLeft, FiArrowUpRight, FiEye, FiEyeOff, FiImage, FiLock, FiMail, FiUser } from "react-icons/fi";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+
 
 const RegisterPage = () => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     // PASSWORD VALIDATION
-    // Required:
-    // - At least 6 characters
-    // - One uppercase letter
-    // - One lowercase letter
     const validatePassword = (value) => {
         if (value.length < 6) {
             return "Password must be at least 6 characters.";
@@ -29,35 +28,36 @@ const RegisterPage = () => {
 
         return null;
     };
+    const router = useRouter();
 
     // REGISTER
     // Authentication intentionally not implemented yet.
     const handleRegister = async (event) => {
         event.preventDefault();
 
-        const formData = Object.fromEntries(new FormData(event.currentTarget));
+        const formData = new FormData(event.currentTarget);
+        const user = Object.fromEntries(formData.entries());
 
-        const passwordError = validatePassword(formData.password);
+        const passwordError = validatePassword(user.password);
 
         if (passwordError) {
             return;
         }
 
-        console.log("Registration Data:", formData);
+        const { data, error } = await  authClient.signUp.email({
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            image: user.image,
+            callbackURL: "/login",
+        });
+        console.log({ data, error });
 
-        // TODO: Add your real registration functionality here.
-        //
-        // try {
-        //     await registerUser(formData);
-        //
-        //     // Registration successful:
-        //     // router.push("/login");
-        //
-        // } catch (error) {
-        //     // Registration failed:
-        //     // show toast / inline error / custom alert
-        // }
+        if(data){
+            router.push('/');
+        }
     };
+
 
     return (
         <main className="min-h-screen bg-[#F4F2ED]">
@@ -90,7 +90,7 @@ const RegisterPage = () => {
                         <div className="absolute inset-0 z-0 lg:hidden">
                             <img
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
-                                alt="Premium DriveFleet vehicle"
+                                alt="Premium Drivly vehicle"
                                 fill
                                 priority
                                 sizes="100vw"
@@ -107,7 +107,7 @@ const RegisterPage = () => {
                                 {/* MOBILE BRAND */}
                                 <div className="mb-6 lg:hidden">
                                     <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#C7A76C]">
-                                        DriveFleet
+                                        Drivly
                                     </span>
                                 </div>
 
@@ -121,12 +121,12 @@ const RegisterPage = () => {
                                         Create your
                                         <br />
                                         <span className="text-[#C7A76C]">
-                                            DriveFleet ID.
+                                            Drivly ID.
                                         </span>
                                     </h1>
 
                                     <p className="mt-3 max-w-sm text-sm leading-6 text-white/70 lg:mt-5 lg:leading-7 lg:text-[#6F706D]">
-                                        Join DriveFleet to unlock premium
+                                        Join Drivly to unlock premium
                                         vehicles, effortless bookings, and
                                         a better way to move.
                                     </p>
@@ -192,7 +192,7 @@ const RegisterPage = () => {
 
                                     {/* PHOTO URL */}
                                     <TextField
-                                        name="photoURL"
+                                        name="image"
                                         type="url"
                                         className="mt-4 w-full lg:mt-5"
                                     >
@@ -311,7 +311,7 @@ const RegisterPage = () => {
                                     <div className="mt-6 w-full border-t border-white/10 pt-4 lg:mt-10 lg:border-[#EAE7E0] lg:pt-5">
                                         <p className="text-center text-[10px] leading-5 text-white/45 lg:text-[#92938F]">
                                             By continuing, you agree to the
-                                            DriveFleet experience and our
+                                            Drivly experience and our
                                             <span className="mx-1 text-white/70 lg:text-[#6F706D]">
                                                 Terms
                                             </span>
@@ -344,7 +344,7 @@ const RegisterPage = () => {
                         <div className="relative hidden min-h-[600px] overflow-hidden bg-[#0B0B0C] lg:block">
                             <img
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
-                                alt="Premium DriveFleet vehicle"
+                                alt="Premium Drivly vehicle"
                                 fill
                                 priority
                                 sizes="50vw"
@@ -359,10 +359,10 @@ const RegisterPage = () => {
 
                             {/* IMAGE CONTENT */}
                             <div className="absolute inset-x-0 bottom-0 z-30 p-8 sm:p-10 lg:p-12">
-                                <div className="max-w-md">
+                                <div className="max-w-md pl-15">
 
                                     <p className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#C7A76C]">
-                                        DriveFleet
+                                        Drivly
                                     </p>
 
                                     <h2 className="mt-4 text-3xl font-semibold leading-[1.05] tracking-tight text-[#F4F2ED] xl:text-4xl">
