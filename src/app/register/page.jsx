@@ -31,7 +31,6 @@ const RegisterPage = () => {
     const router = useRouter();
 
     // REGISTER
-    // Authentication intentionally not implemented yet.
     const handleRegister = async (event) => {
         event.preventDefault();
 
@@ -44,7 +43,7 @@ const RegisterPage = () => {
             return;
         }
 
-        const { data, error } = await  authClient.signUp.email({
+        const { data, error } = await authClient.signUp.email({
             name: user.name,
             email: user.email,
             password: user.password,
@@ -53,10 +52,18 @@ const RegisterPage = () => {
         });
         console.log({ data, error });
 
-        if(data){
+        if (data) {
             router.push('/');
         }
     };
+
+    const handleGoogleRegister = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+
+        console.log("google sign In", data)
+    }
 
 
     return (
@@ -157,7 +164,7 @@ const RegisterPage = () => {
                                             <InputGroup.Input
                                                 placeholder="Your full name"
                                                 autoComplete="name"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
                                         </InputGroup>
 
@@ -183,7 +190,7 @@ const RegisterPage = () => {
                                             <InputGroup.Input
                                                 placeholder="you@example.com"
                                                 autoComplete="email"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
                                         </InputGroup>
 
@@ -208,7 +215,7 @@ const RegisterPage = () => {
                                             <InputGroup.Input
                                                 placeholder="https://example.com/photo.jpg"
                                                 autoComplete="off"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
                                         </InputGroup>
 
@@ -235,7 +242,7 @@ const RegisterPage = () => {
                                                 type={showPassword ? "text" : "password"}
                                                 placeholder="Create a password"
                                                 autoComplete="new-password"
-                                                className="text-white placeholder:text-white/40 lg:text-[#111214] lg:placeholder:text-[#9A9B97]"
+                                                className="login-input !text-white placeholder:!text-white/40 lg:!text-[#111214] lg:placeholder:!text-[#9A9B97]"
                                             />
 
                                             <InputGroup.Suffix>
@@ -285,7 +292,7 @@ const RegisterPage = () => {
                                     <Button
                                         type="button"
                                         variant="outline"
-                                        // onPress={handleGoogleRegister}
+                                        onPress={handleGoogleRegister}
                                         className="h-14 w-full rounded-xl border-white/25 bg-white/10 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/15 lg:border-[#D9D6CF] lg:bg-white lg:text-[#111214] lg:hover:border-[#111214]/30 lg:hover:bg-[#F9F8F4]"
                                     >
                                         <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-sm font-semibold text-white lg:border-[#EAE7E0] lg:bg-[#F9F8F4] lg:text-[#111214]">

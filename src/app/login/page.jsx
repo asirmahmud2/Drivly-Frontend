@@ -41,6 +41,12 @@ const LoginPages = () => {
         }
     }
 
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+        
+    }
 
     return (
         <main className="min-h-screen bg-[#F4F2ED]">
@@ -306,7 +312,7 @@ const LoginPages = () => {
                                     <Button
                                         type="button"
                                         variant="outline"
-                                        // onPress={handleGoogleLogin}
+                                        onPress={handleGoogleLogin}
                                         className="h-14 w-full rounded-xl border-white/25 bg-white/10 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/15 lg:border-[#D9D6CF] lg:bg-white lg:text-[#111214] lg:hover:border-[#111214]/30 lg:hover:bg-[#F9F8F4]"
                                     >
                                         <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-sm font-semibold text-white lg:border-[#EAE7E0] lg:bg-[#F9F8F4] lg:text-[#111214]">
