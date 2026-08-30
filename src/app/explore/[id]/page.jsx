@@ -321,37 +321,7 @@ const CarDetails = async ({ params }) => {
             </section>
 
             {/* MANAGEMENT ACTIONS */}
-            <section>
-                <div className="container mx-auto px-4 py-5 sm:px-6 sm:py-7 lg:px-8">
-
-                    <div className="rounded-[2rem] border border-[#D9D6CF] bg-white p-4 sm:p-5">
-
-                        <div className="flex flex-col gap-3 lg:flex-row">
-
-                            {/* Book */}
-                            <a
-                                href="#booking"
-                                className="group flex min-h-14 flex-1 items-center justify-center gap-3 rounded-xl bg-[#0B0B0C] px-6 py-3 text-sm font-semibold text-[#F4F2ED] transition-all duration-300 hover:bg-[#151618]"
-                            >
-                                <span>Reserve This Vehicle</span>
-
-                                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#C7A76C] text-[#0B0B0C] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                                    <FiArrowUpRight className="text-sm" />
-                                </span>
-                            </a>
-
-                            {/* Edit */}
-                            <EditModal data={data} />
-
-                            {/* Delete */}
-                            <DeleteModal data={data} />
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
+            
 
             {/* FINAL CTA */}
             <section>

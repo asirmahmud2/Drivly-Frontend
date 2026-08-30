@@ -26,12 +26,21 @@ const formatDate = (date) => {
 const BookingCards = ({ bookings = [] }) => {
     const [visibleBookings, setVisibleBookings] = useState(bookings);
 
-    const handleCancel = (bookingId) => {
-        // Booking cancellation API will be implemented later.
+    const handleCancel = async (bookingId) => {
+        const res = await fetch(`http://localhost:5000/booking/${bookingId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!res.ok) {
+            console.log("Failed to cancel booking");
+            return;
+        }
+
         setVisibleBookings((currentBookings) =>
-            currentBookings.filter(
-                (booking) => booking._id !== bookingId
-            )
+            currentBookings.filter((booking) => booking._id !== bookingId)
         );
     };
 
@@ -287,15 +296,15 @@ const BookingCards = ({ bookings = [] }) => {
                                     {/* Actions */}
                                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
-                                    <Link href={`/explore/${booking.car_id}`}>
-                                        <Button
-                                            variant="outline"
-                                            className="h-11 rounded-xl border-[#D9D6CF] bg-transparent px-5 text-sm font-medium text-[#111214] hover:border-[#C7A76C] hover:bg-[#F4F2ED]"
-                                        >
-                                            View Vehicle
-                                            <FiArrowUpRight />
-                                        </Button>
-                                    </Link>            
+                                        <Link href={`/explore/${booking.car_id}`}>
+                                            <Button
+                                                variant="outline"
+                                                className="h-11 rounded-xl border-[#D9D6CF] bg-transparent px-5 text-sm font-medium text-[#111214] hover:border-[#C7A76C] hover:bg-[#F4F2ED]"
+                                            >
+                                                View Vehicle
+                                                <FiArrowUpRight />
+                                            </Button>
+                                        </Link>
 
                                         <Button
                                             type="button"
