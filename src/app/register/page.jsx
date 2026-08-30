@@ -7,6 +7,7 @@ import { Button, FieldError, Form, InputGroup, Label, TextField } from "@heroui/
 import { FiArrowLeft, FiArrowUpRight, FiEye, FiEyeOff, FiImage, FiLock, FiMail, FiUser } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { registerErrorToast, registerSuccessToast } from "@/Components/Toasters";
 
 
 const RegisterPage = () => {
@@ -54,6 +55,9 @@ const RegisterPage = () => {
 
         if (data) {
             router.push('/');
+            registerSuccessToast();
+        }else{
+            registerErrorToast();
         }
     };
 

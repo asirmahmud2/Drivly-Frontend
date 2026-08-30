@@ -12,6 +12,7 @@ import {
     FiX,
 } from "react-icons/fi";
 import { Button, Card } from "@heroui/react";
+import { cancelErrorToast, cancelSuccessToast } from "../Toasters";
 
 const formatDate = (date) => {
     if (!date) return "—";
@@ -35,13 +36,14 @@ const BookingCards = ({ bookings = [] }) => {
         });
 
         if (!res.ok) {
-            console.log("Failed to cancel booking");
+            cancelErrorToast();
             return;
         }
 
         setVisibleBookings((currentBookings) =>
             currentBookings.filter((booking) => booking._id !== bookingId)
         );
+        cancelSuccessToast()
     };
 
     if (!visibleBookings.length) {

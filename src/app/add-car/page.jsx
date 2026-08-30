@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button, Card, Input, Label, ListBox, Select, Switch, TextArea, TextField } from "@heroui/react";
 import { FiArrowRight, FiCheckCircle, FiDollarSign, FiImage, FiInfo, FiMapPin, FiPlus, FiTrash2 } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
+import { carAddedToast } from "@/Components/Toasters";
 
 const vehicleTypes = [
     "Sedan", "SUV", "Sports Coupe", "Hatchback", "Luxury", "Convertible", "Pickup Truck", "Minivan",
@@ -83,8 +84,8 @@ const AddCar = () => {
         });
 
         const result = await res.json();
-
         console.log("Server Response:", result);
+        carAddedToast();
     };
 
     return (

@@ -19,6 +19,7 @@ import {
     FiUser,
 } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
+import { bookingErrorToast, bookingSuccessToast } from "../Toasters";
 
 const driverOptions = [
     {
@@ -37,8 +38,8 @@ const BookCard = ({ data }) => {
     const [driverNeeded, setDriverNeeded] = useState("no");
     const [specialNote, setSpecialNote] = useState("");
     const {
-            data: session,
-        } = authClient.useSession();
+        data: session,
+    } = authClient.useSession();
     const user = session?.user;
 
     const rentalDays = useMemo(() => {
@@ -73,19 +74,26 @@ const BookCard = ({ data }) => {
             daily_rent_price: Number(data.daily_rent_price),
             total_days: rentalDays,
             total_price: totalPrice,
+            booking_date: new Date(),
         };
 
-        // console.log("Booking Data:", bookingData);
-
-        const res = await fetch('http://localhost:5000/booking', {
+        const res = await fetch("http://localhost:5000/booking", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(bookingData),
-        })
+        });
+
+        if (!res.ok) {
+            bookingErrorToast();
+            return;
+        }
+
         const allData = await res.json();
         console.log(allData);
+
+        bookingSuccessToast();
     };
 
     return (

@@ -19,6 +19,7 @@ import {
 } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { loginErrorToast, loginSuccessToast } from "@/Components/Toasters";
 
 const LoginPages = () => {
     const [showPassword, setShowPassword] = React.useState(false);
@@ -34,10 +35,13 @@ const LoginPages = () => {
             email: user.email,
             password: user.password,
         });
-        console.log({ data, error });
+        // console.log({ data, error });
 
         if (data) {
+            loginSuccessToast();
             router.push('/');
+        } else {
+            loginErrorToast();
         }
     }
 
@@ -45,7 +49,7 @@ const LoginPages = () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
-        
+
     }
 
     return (

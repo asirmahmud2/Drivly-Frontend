@@ -4,6 +4,7 @@ import React from "react";
 import { AlertDialog, Button } from "@heroui/react";
 import { FiArrowRight, FiTrash2 } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import { carDeletedToast } from "../Toasters";
 
 export function DeleteModal({ data }) {
     const { _id, name, brand, model, year, type } = data;
@@ -24,6 +25,7 @@ export function DeleteModal({ data }) {
             }
 
             const result = await res.json();
+            carDeletedToast();
 
             // console.log("Server Response:", result);
 

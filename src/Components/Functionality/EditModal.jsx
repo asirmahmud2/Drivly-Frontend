@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button, Input, Label, Modal, Switch, TextArea, TextField } from "@heroui/react";
 import { FiArrowUpRight, FiCheck, FiDollarSign, FiEdit3, FiImage, FiInfo, FiMapPin, FiPlus, FiTrash2 } from "react-icons/fi";
+import { carUpdatedToast } from "../Toasters";
 
 const vehicleTypes = ["Sedan", "SUV", "Sports Coupe", "Hatchback", "Luxury", "Convertible", "Pickup Truck", "Minivan"];
 const transmissions = ["Automatic", "Manual"];
@@ -76,9 +77,10 @@ export function EditModal({ data }) {
         if (!res.ok) {
             throw new Error("Failed to update vehicle");
         }
-
+        carUpdatedToast()
         setIsOpen(false);
         window.location.reload();
+
     };
 
     return (

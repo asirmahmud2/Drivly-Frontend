@@ -15,6 +15,7 @@ import {
     FiLogIn,
 } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
+import { logoutSuccessToast } from "../Toasters";
 
 const navOptions = [
     {
@@ -56,6 +57,7 @@ const Navbar = () => {
     // console.log("Session", user);
 
     const handleLogout = async () => {
+        logoutSuccessToast();
         await authClient.signOut();
     };
 
