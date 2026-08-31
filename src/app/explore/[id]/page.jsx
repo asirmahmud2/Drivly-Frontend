@@ -19,7 +19,7 @@ import BookCard from "@/Components/Functionality/BookCard";
 const CarDetails = async ({ params }) => {
     const { id } = await params;
 
-    const result = await fetch(`http://localhost:5000/cars/${id}`, {
+    const result = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/cars/${id}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -202,8 +202,8 @@ const CarDetails = async ({ params }) => {
                                     <div
                                         key={item.label}
                                         className={`px-1 py-6 sm:px-6 ${index < 3
-                                                ? "border-b border-[#EAE7E0] sm:border-r lg:border-b-0"
-                                                : ""
+                                            ? "border-b border-[#EAE7E0] sm:border-r lg:border-b-0"
+                                            : ""
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
@@ -321,7 +321,7 @@ const CarDetails = async ({ params }) => {
             </section>
 
             {/* MANAGEMENT ACTIONS */}
-            
+
 
             {/* FINAL CTA */}
             <section>

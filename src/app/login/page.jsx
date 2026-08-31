@@ -81,7 +81,7 @@ const LoginPages = () => {
 
                         {/* MOBILE BACKGROUND */}
                         <div className="absolute inset-0 z-0 lg:hidden">
-                            <img
+                            <Image
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
                                 alt="Premium Drivly vehicle"
                                 fill

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button, Input, Label, Modal, Switch, TextArea, TextField } from "@heroui/react";
 import { FiArrowUpRight, FiCheck, FiDollarSign, FiEdit3, FiImage, FiInfo, FiMapPin, FiPlus, FiTrash2 } from "react-icons/fi";
 import { carUpdatedToast } from "../Toasters";
+import { authClient } from "@/lib/auth-client";
 
 const vehicleTypes = ["Sedan", "SUV", "Sports Coupe", "Hatchback", "Luxury", "Convertible", "Pickup Truck", "Minivan"];
 const transmissions = ["Automatic", "Manual"];
@@ -41,8 +42,12 @@ export function EditModal({ data }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const raw = Object.fromEntries(new FormData(event.currentTarget).entries());
 
+        const formData = new FormData(event.target);
+        const raw = Object.fromEntries(formData.entries());
+
+        const { data: tokenData } = await authClient.token();
+        console.log("Token Data:", tokenData);
         const vehicleData = {
             name: raw.vehicleName,
             brand: raw.brand,
@@ -62,10 +67,11 @@ export function EditModal({ data }) {
             key_features: features.filter((feature) => feature.trim() !== ""),
         };
 
-        const res = await fetch(`http://localhost:5000/cars/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/cars/${_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(vehicleData),
         });

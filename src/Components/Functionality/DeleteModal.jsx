@@ -5,6 +5,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { FiArrowRight, FiTrash2 } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { carDeletedToast } from "../Toasters";
+import { authClient } from "@/lib/auth-client";
 
 export function DeleteModal({ data }) {
     const { _id, name, brand, model, year, type } = data;
@@ -12,11 +13,14 @@ export function DeleteModal({ data }) {
     const router = useRouter();
 
     const handleDelete = async () => {
+        const { data: tokenData } = await authClient.token();
+        console.log("Token Data:", tokenData);
         try {
-            const res = await fetch(`http://localhost:5000/cars/${_id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/cars/${_id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: `Bearer ${tokenData?.token}`
                 },
             });
 

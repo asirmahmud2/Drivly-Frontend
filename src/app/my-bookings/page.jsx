@@ -9,14 +9,14 @@ const BookingPage = async () => {
     });
     const user = session?.user;
 
-    const {token} = await auth.api.getToken({
+    const { token } = await auth.api.getToken({
         headers: await headers(),
     });
 
     // console.log("My Token", token);
 
     const res = await fetch(
-        `http://localhost:5000/booking/${user?.id}`,
+        `${process.env.NEXT_PUBLIC_SERVER}/booking/${user?.id}`,
         {
             method: "GET",
             headers: {

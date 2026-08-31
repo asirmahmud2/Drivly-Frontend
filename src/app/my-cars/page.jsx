@@ -19,12 +19,19 @@ const MyAddedCars = async () => {
 
     const user = session?.user;
 
+    const { token } = await auth.api.getToken({
+        headers: await headers(),
+    });
+
+    console.log("My Token", token);
+
     const res = await fetch(
-        `http://localhost:5000/add-car/${user?.id}`,
+        `${process.env.NEXT_PUBLIC_SERVER}/add-car/${user?.id}`,
         {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${token}`,
             },
         }
     );
@@ -159,11 +166,10 @@ const MyAddedCars = async () => {
                                             <div className="absolute left-4 top-4">
                                                 <div className="flex items-center gap-2 rounded-full border border-white/15 bg-[#0B0B0C]/45 px-3.5 py-2 text-xs font-medium text-white backdrop-blur-md">
                                                     <span
-                                                        className={`h-1.5 w-1.5 rounded-full ${
-                                                            car.availability
-                                                                ? "bg-[#C7A76C]"
-                                                                : "bg-[#A64B45]"
-                                                        }`}
+                                                        className={`h-1.5 w-1.5 rounded-full ${car.availability
+                                                            ? "bg-[#C7A76C]"
+                                                            : "bg-[#A64B45]"
+                                                            }`}
                                                     />
 
                                                     {car.availability

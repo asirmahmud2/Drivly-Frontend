@@ -76,11 +76,14 @@ const BookCard = ({ data }) => {
             total_price: totalPrice,
             booking_date: new Date(),
         };
+        const { data: tokenData } = await authClient.token();
+        console.log("Token Data:", tokenData);
 
-        const res = await fetch("http://localhost:5000/booking", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/booking`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`,
             },
             body: JSON.stringify(bookingData),
         });

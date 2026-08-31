@@ -48,6 +48,9 @@ const AddCar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const { data: tokenData } = await authClient.token();
+        console.log("Token Data:", tokenData);
+
         const formData = new FormData(e.target);
         const raw = Object.fromEntries(formData.entries());
 
@@ -75,10 +78,11 @@ const AddCar = () => {
 
         console.log("Vehicle Data:", vehicleData);
 
-        const res = await fetch("http://localhost:5000/car", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/car`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(vehicleData),
         });

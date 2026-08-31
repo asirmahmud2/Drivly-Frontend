@@ -13,6 +13,7 @@ import {
 } from "react-icons/fi";
 import { Button, Card } from "@heroui/react";
 import { cancelErrorToast, cancelSuccessToast } from "../Toasters";
+import { authClient } from "@/lib/auth-client";
 
 const formatDate = (date) => {
     if (!date) return "—";
@@ -28,10 +29,13 @@ const BookingCards = ({ bookings = [] }) => {
     const [visibleBookings, setVisibleBookings] = useState(bookings);
 
     const handleCancel = async (bookingId) => {
-        const res = await fetch(`http://localhost:5000/booking/${bookingId}`, {
+        const { data: tokenData } = await authClient.token();
+        console.log("Token Data:", tokenData);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/booking/${bookingId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`,
             },
         });
 
