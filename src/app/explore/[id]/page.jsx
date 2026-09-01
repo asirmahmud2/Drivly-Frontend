@@ -19,6 +19,7 @@ import BookCard from "@/Components/Functionality/BookCard";
 const CarDetails = async ({ params }) => {
     const { id } = await params;
 
+    
     const result = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/cars/${id}`, {
         method: "GET",
         headers: {

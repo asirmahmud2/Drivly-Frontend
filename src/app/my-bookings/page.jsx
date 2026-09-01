@@ -13,7 +13,7 @@ const BookingPage = async () => {
         headers: await headers(),
     });
 
-    // console.log("My Token", token);
+    console.log("My Token", token);
 
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/booking/${user?.id}`,
