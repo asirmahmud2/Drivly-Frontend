@@ -100,19 +100,12 @@ export default function HowItWorks() {
             ))}
           </svg>
 
-          {/* Step copy positioned near each waypoint, alternating above/below.
-              Each box is anchored relative to its position on the route (grow
-              right / center / grow left) so it can never push past the
-              container, regardless of width. */}
           <div className="pointer-events-none absolute inset-0">
             {STEPS.map((step, i) => {
               const p = DESKTOP_POINTS[i];
               const isAbove = i % 2 === 1;
               const xPct = (p.x / 1240) * 100;
 
-              // First point: box grows rightward from the waypoint.
-              // Middle point: box centers on the waypoint.
-              // Last point: box grows leftward from the waypoint.
               const horizontalAnchor =
                 i === 0
                   ? { left: `${xPct}%`, translate: "0% 0" }

@@ -6,9 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 
-/* ------------------------------------------------------------------ */
-/*  Motion — one orchestrated "hang into place" reveal, triggered once */
-/* ------------------------------------------------------------------ */
 const wallReveal = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
@@ -25,9 +22,7 @@ const hangIn = {
 const getImg = (car) => (Array.isArray(car?.image) ? car.image[0] : car?.image);
 const money = (n) => (n || n === 0 ? `$${n}` : "$—");
 
-/* ------------------------------------------------------------------ */
-/*  Wire + hook — the signature element tying every piece to the rail  */
-/* ------------------------------------------------------------------ */
+
 const Wire = ({ cls }) => (
     <div className="flex flex-col items-center">
         <span className="h-[5px] w-[5px] rounded-full bg-[#C7A76C]" />
@@ -39,10 +34,7 @@ const Rail = () => (
     <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C7A76C]/55 to-transparent" />
 );
 
-/* ------------------------------------------------------------------ */
-/*  Frame 1 — "The Panorama": the centerpiece of the wall. Wide, dark, */
-/*  brass-edged, carrying the weight the old standalone hero used to.  */
-/* ------------------------------------------------------------------ */
+
 const FramePanorama = ({ car }) => {
     const image = getImg(car);
     return (
@@ -110,9 +102,7 @@ const FramePanorama = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Frame 2 — "The Print": cream mat, caption plate, spec tags.        */
-/* ------------------------------------------------------------------ */
+
 const FramePrint = ({ car }) => {
     const image = getImg(car);
     return (
@@ -155,9 +145,7 @@ const FramePrint = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Frame 3 — "The Plaque": small, text-led, a pinned medallion image  */
-/* ------------------------------------------------------------------ */
+
 const FramePlaque = ({ car }) => {
     const image = getImg(car);
     return (
@@ -190,9 +178,7 @@ const FramePlaque = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Frame 4 — "The Ledger": a spec-plate card, dealership-tag styling  */
-/* ------------------------------------------------------------------ */
+
 const FrameLedger = ({ car }) => {
     const image = getImg(car);
     const specs = [
@@ -242,9 +228,7 @@ const FrameLedger = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Frame 5 — "The Shadow Box": image and details split by a divider  */
-/* ------------------------------------------------------------------ */
+
 const FrameShadowbox = ({ car }) => {
     const image = getImg(car);
     return (
@@ -293,9 +277,7 @@ const FrameShadowbox = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Frame 6 — "The Ticket": a valet-ticket stub — a nod to the trade   */
-/* ------------------------------------------------------------------ */
+
 const FrameTicket = ({ car }) => {
     const image = getImg(car);
     return (
@@ -334,9 +316,6 @@ const FrameTicket = ({ car }) => {
     );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Gallery — 6 pieces, three rails, staggered wires                   */
-/* ------------------------------------------------------------------ */
 const FeaturedCarGallery = ({ cars = [] }) => {
     const hero = cars[0];
     const row2 = cars.slice(1, 4);
