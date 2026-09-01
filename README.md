@@ -1,6 +1,3 @@
-Absolutely. Here is the **complete README in copy-paste-ready Markdown**.
-
-````md
 # Drivly
 
 **A premium car rental and vehicle marketplace platform.**
@@ -8,12 +5,9 @@ Absolutely. Here is the **complete README in copy-paste-ready Markdown**.
 Drivly connects vehicle owners with people who want to rent premium vehicles — combining a full-featured rental marketplace with an editorial, luxury-brand visual identity rather than a generic rental-app look and feel.
 
 [![Frontend](https://img.shields.io/badge/frontend-live-C7A76C?style=flat-square)](https://drivly-frontend.vercel.app)
-
 [![Backend](https://img.shields.io/badge/backend-live-C7A76C?style=flat-square)](https://drivly-backend.vercel.app)
-
-[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js)](https://nextjs.org)
-
-[![MongoDB](https://img.shields.io/badge/MongoDB-database-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square\&logo=next.js)](https://nextjs.org)
+[![MongoDB](https://img.shields.io/badge/MongoDB-database-47A248?style=flat-square\&logo=mongodb\&logoColor=white)](https://www.mongodb.com)
 
 **Live app:** [drivly-frontend.vercel.app](https://drivly-frontend.vercel.app)
 
@@ -21,39 +15,41 @@ Drivly connects vehicle owners with people who want to rent premium vehicles —
 
 ## Related Repositories
 
-- **Backend repository:** [github.com/asirmahmud2/Drivly-backend](https://github.com/asirmahmud2/Drivly-backend)
+* **Backend repository:** [github.com/asirmahmud2/Drivly-backend](https://github.com/asirmahmud2/Drivly-backend)
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Data Models](#data-models)
-- [API Reference](#api-reference)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Design System](#design-system)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
+* [Overview](#overview)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Project Structure](#project-structure)
+* [Data Models](#data-models)
+* [API Reference](#api-reference)
+* [Getting Started](#getting-started)
+* [Environment Variables](#environment-variables)
+* [Design System](#design-system)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
 
 ---
 
 ## Overview
 
-Drivly is a **two-sided marketplace**: customers can browse and book premium vehicles, while vehicle owners can list, edit, and manage their own cars on the same platform. The product goal isn't just functional parity with a typical rental site — it's to feel like a luxury automotive brand: quiet, editorial, confident, and detail-driven.
+Drivly is a **two-sided marketplace**: customers can browse and book premium vehicles, while vehicle owners can list, edit, and manage their own cars on the same platform.
 
-**Core capabilities:**
+The product goal isn't just functional parity with a typical rental site — it is designed to feel like a luxury automotive brand: quiet, editorial, confident, and detail-driven.
 
-- Browse, search, and filter available vehicles
-- View detailed vehicle pages with full specifications
-- Book a vehicle with real-time price calculation
-- Manage and cancel bookings
-- List, edit, and delete your own vehicles as an owner
-- Authenticate via email/password or Google OAuth
+### Core Capabilities
+
+* Browse, search, and filter available vehicles
+* View detailed vehicle pages with full specifications
+* Book a vehicle with real-time price calculation
+* Manage and cancel bookings
+* List, edit, and delete your own vehicles as an owner
+* Authenticate via email/password or Google OAuth
 
 ---
 
@@ -61,38 +57,38 @@ Drivly is a **two-sided marketplace**: customers can browse and book premium veh
 
 ### For Renters
 
-- **Explore & Search** — filter by vehicle type (Sedan, SUV, Sports Coupe, Luxury, etc.) and availability, with a responsive 1 → 2 → 3 column grid
-- **Vehicle Details** — full specs (seats, transmission, fuel type), pickup location, owner info, and availability status
-- **Booking** — date-range picker, optional driver add-on, special notes, and a live total price calculated from rental days × daily rate
-- **My Bookings** — view booking history and cancel active reservations, with confirmation and toast feedback
+* **Explore & Search** — Filter vehicles by type such as Sedan, SUV, Sports Coupe, and Luxury, with a responsive 1 → 2 → 3 column grid.
+* **Vehicle Details** — View full specifications including seats, transmission, fuel type, pickup location, owner information, and availability status.
+* **Booking** — Select a date range, optionally add a driver, add special notes, and view a live total calculated from rental days × daily rate.
+* **My Bookings** — View booking history and cancel active reservations with confirmation and toast feedback.
 
 ### For Vehicle Owners
 
-- **Add a Vehicle** — structured form covering identity (brand, model, year, color, body style), specifications, pricing, pickup location, dynamic feature tags, and description
-- **My Cars Dashboard** — manage all listed vehicles with edit and delete modals, and toggle availability
-- **Empty States** — guided prompts to list a first vehicle when none exist yet
+* **Add a Vehicle** — Structured form covering vehicle identity, specifications, pricing, pickup location, dynamic feature tags, and description.
+* **My Cars Dashboard** — Manage listed vehicles with edit and delete modals and toggle availability.
+* **Empty States** — Guided prompts help owners list their first vehicle when none exist.
 
 ### Platform-Wide
 
-- **Authentication** — email/password and Google OAuth via Better Auth, with JWT sessions cached for 7 days
-- **Toast Notifications** — contextual success/error feedback across login, registration, bookings, and vehicle management
-- **Responsive Design** — mobile-first layouts throughout, with an intentionally distinct (not just collapsed) mobile composition on the homepage
+* **Authentication** — Email/password and Google OAuth via Better Auth, with JWT sessions cached for 7 days.
+* **Toast Notifications** — Contextual success and error feedback across authentication, bookings, and vehicle management.
+* **Responsive Design** — Mobile-first layouts throughout, including an intentionally distinct mobile composition on the homepage.
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router), React 19 |
-| Styling | Tailwind CSS 4, DaisyUI |
-| UI Components | HeroUI 3 |
-| Animation | Framer Motion |
-| Icons | React Icons |
-| Notifications | React Hot Toast |
-| Database | MongoDB |
-| Auth | Better Auth (email/password + Google OAuth, MongoDB adapter) |
-| Deployment | Vercel (frontend + backend) |
+| Layer          | Technology                                                   |
+| -------------- | ------------------------------------------------------------ |
+| Framework      | Next.js 16 (App Router), React 19                            |
+| Styling        | Tailwind CSS 4, DaisyUI                                      |
+| UI Components  | HeroUI 3                                                     |
+| Animation      | Framer Motion                                                |
+| Icons          | React Icons                                                  |
+| Notifications  | React Hot Toast                                              |
+| Database       | MongoDB                                                      |
+| Authentication | Better Auth (email/password + Google OAuth, MongoDB adapter) |
+| Deployment     | Vercel (frontend + backend)                                  |
 
 > **MongoDB note:** In this frontend repository, MongoDB is used by the Better Auth integration for user/session storage. Vehicle and booking data are managed by the separate Express/MongoDB backend repository.
 
@@ -102,28 +98,38 @@ Drivly is a **two-sided marketplace**: customers can browse and book premium veh
 
 ```text
 drivly/
-
 ├── src/
 │   ├── app/
-│   │   ├── page.js                  # Homepage
-│   │   ├── login/                   # Login
-│   │   ├── register/                # Registration
-│   │   ├── explore/                 # Browse all vehicles
-│   │   │   └── [id]/                # Vehicle detail page
-│   │   ├── add-car/                 # Add a vehicle (protected)
-│   │   ├── my-cars/                 # Manage listed vehicles (protected)
-│   │   ├── my-bookings/             # Booking history (protected)
-│   │   └── api/auth/[...all]/       # Better Auth catch-all route
+│   │   ├── page.js                     # Homepage
+│   │   ├── login/                      # Login
+│   │   ├── register/                   # Registration
+│   │   ├── explore/                    # Browse all vehicles
+│   │   │   └── [id]/                   # Vehicle detail page
+│   │   ├── add-car/                    # Add a vehicle (protected)
+│   │   ├── my-cars/                    # Manage listed vehicles (protected)
+│   │   ├── my-bookings/                # Booking history (protected)
+│   │   └── api/auth/[...all]/          # Better Auth catch-all route
+│   │
 │   ├── Components/
-│   │   ├── Home/                    # Hero, Navbar, Footer, Featured Cars,
-│   │   │                             # Why Drivly, How It Works,
-│   │   │                             # Premium Experience, Testimonials, Final CTA
-│   │   └── Functionality/           # Booking forms, vehicle cards, modals
-│   └── lib/                         # Server- and client-side auth logic
+│   │   ├── Home/                       # Homepage sections
+│   │   │   ├── Hero
+│   │   │   ├── Navbar
+│   │   │   ├── Footer
+│   │   │   ├── Featured Cars
+│   │   │   ├── Why Drivly
+│   │   │   ├── How It Works
+│   │   │   ├── Premium Experience
+│   │   │   ├── Testimonials
+│   │   │   └── Final CTA
+│   │   │
+│   │   └── Functionality/              # Booking forms, cards, modals
+│   │
+│   └── lib/                            # Server/client-side auth logic
+│
 ├── next.config.mjs
-├── jsconfig.json                    # `@/*` → `src/*`
+├── jsconfig.json                       # @/* → src/*
 └── tailwind.config.js
-````
+```
 
 ### Homepage Sections
 
@@ -132,7 +138,7 @@ drivly/
 | 01 | Hero                 | Cinematic entry point with primary "Explore Cars" CTA                              |
 | 02 | Featured Cars        | Curated, editorial gallery of premium vehicles                                     |
 | 03 | Why Drivly           | Brand differentiation — curated selection, transparent booking, premium experience |
-| 04 | How It Works         | Explore → Reserve → Drive, as a simple three-step process                          |
+| 04 | How It Works         | Explore → Reserve → Drive, presented as a simple three-step process                |
 | 05 | Premium Experience   | Full-bleed cinematic brand statement                                               |
 | 06 | Testimonials / Trust | Social proof paired with platform trust metrics                                    |
 | 07 | Final CTA            | Closing prompt to browse the fleet or list a vehicle                               |
@@ -145,7 +151,7 @@ The frontend does not own the vehicle or booking schemas; those are maintained b
 
 **User records and authentication data are handled by Better Auth in this repository**, using its MongoDB adapter for persistence.
 
-See the [backend repository](https://github.com/asirmahmud2/Drivly-backend) for the vehicle and booking data models.
+For the vehicle and booking data models, see the [Drivly backend repository](https://github.com/asirmahmud2/Drivly-backend).
 
 ---
 
@@ -157,11 +163,11 @@ This frontend consumes the Drivly backend API rather than implementing the vehic
 
 For the complete vehicle and booking endpoint reference, see the [Drivly backend repository](https://github.com/asirmahmud2/Drivly-backend).
 
-### Auth
+### Authentication
 
-| Method | Endpoint             | Description                                                                          |
-| ------ | -------------------- | ------------------------------------------------------------------------------------ |
-| `*`    | `/api/auth/[...all]` | Better Auth catch-all — sign-up, sign-in, sign-out, Google OAuth, session validation |
+| Method | Endpoint             | Description                                                                                      |
+| ------ | -------------------- | ------------------------------------------------------------------------------------------------ |
+| `*`    | `/api/auth/[...all]` | Better Auth catch-all route for sign-up, sign-in, sign-out, Google OAuth, and session validation |
 
 ---
 
@@ -169,9 +175,11 @@ For the complete vehicle and booking endpoint reference, see the [Drivly backend
 
 ### Prerequisites
 
+Before running Drivly locally, make sure you have:
+
 * Node.js 18+
-* A MongoDB instance (local or Atlas)
-* A Google Cloud OAuth client (for Google sign-in)
+* A MongoDB instance, either local or MongoDB Atlas
+* A Google Cloud OAuth client for Google sign-in
 
 ### Installation
 
@@ -179,23 +187,30 @@ For the complete vehicle and booking endpoint reference, see the [Drivly backend
 # Clone the repository
 git clone https://github.com/<your-username>/drivly.git
 
+# Move into the project directory
 cd drivly
 
 # Install dependencies
 npm install
 
-# Set up environment variables (see below)
+# Create your local environment file
 cp .env.example .env.local
 
-# Run the development server
+# Start the development server
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+The application will be available at:
+
+```text
+http://localhost:3000
+```
 
 ---
 
 ## Environment Variables
+
+Create a `.env.local` file in the project root and configure the required environment variables.
 
 | Variable               | Description                        |
 | ---------------------- | ---------------------------------- |
@@ -205,11 +220,15 @@ The app will be available at `http://localhost:3000`.
 | `BETTER_AUTH_URL`      | Base URL for Better Auth endpoints |
 | `NEXT_PUBLIC_SERVER`   | Base URL of the backend API        |
 
+> **Important:** Never commit `.env.local` or expose your Google OAuth client secret or other private credentials in the repository.
+
 ---
 
 ## Design System
 
-Drivly's visual identity is built around restraint: a warm ivory/obsidian palette with a single champagne accent, used deliberately rather than everywhere.
+Drivly's visual identity is built around restraint: a warm ivory and obsidian palette with a single champagne accent, used deliberately rather than everywhere.
+
+### Color Palette
 
 | Token           | Value     | Usage                                      |
 | --------------- | --------- | ------------------------------------------ |
@@ -217,15 +236,21 @@ Drivly's visual identity is built around restraint: a warm ivory/obsidian palett
 | Dark Surface    | `#151618` | Card/panel backgrounds on dark sections    |
 | Warm Ivory      | `#F4F2ED` | Primary light background                   |
 | Deep Black Text | `#111214` | Body text on light backgrounds             |
-| Stone Gray      | `#6F706D` | Secondary/muted text                       |
+| Stone Gray      | `#6F706D` | Secondary / muted text                     |
 | Warm Gray       | `#D9D6CF` | Borders and dividers                       |
 | Champagne       | `#C7A76C` | Primary accent — eyebrows, key lines, CTAs |
 | Champagne Hover | `#AF8D52` | Interactive hover state                    |
-| Destructive Red | `#A64B45` | Errors, delete actions                     |
+| Destructive Red | `#A64B45` | Errors and delete actions                  |
 
-**Typography:** Geist, with large editorial headings, tight tracking, and a clear contrast step between headings and supporting copy.
+### Typography
 
-**Motion:** Framer Motion is used sparingly — content reveals once on scroll into view, with no continuous looping or bouncy easing, so the site feels alive without feeling animated at the visitor.
+Drivly uses **Geist** typography with large editorial headings, tight tracking, and a clear contrast between headings and supporting copy.
+
+### Motion
+
+Framer Motion is used sparingly. Content reveals once when scrolling into view, with no continuous looping or overly bouncy easing.
+
+The goal is for the interface to feel **alive without feeling animated**.
 
 ---
 
@@ -234,7 +259,7 @@ Drivly's visual identity is built around restraint: a warm ivory/obsidian palett
 * [ ] Payment processing integration
 * [ ] Review and rating system for vehicles and users
 * [ ] In-app messaging between renters and owners
-* [ ] Advanced filters (price range, location radius)
+* [ ] Advanced filters such as price range and location radius
 * [ ] Owner analytics dashboard
 * [ ] Promotion / discount codes
 * [ ] Email notifications for bookings
@@ -244,10 +269,18 @@ Drivly's visual identity is built around restraint: a warm ivory/obsidian palett
 
 ## Contributing
 
-This is currently a solo project in active development. Issues and suggestions are welcome — open an issue describing the change before submitting a pull request.
+Drivly is currently a solo project in active development.
+
+Issues, feedback, and suggestions are welcome. If you would like to propose a change, open an issue describing the improvement before submitting a pull request.
 
 ---
 
+## License
 
-<p align="center">Built with care, for people who care how they arrive.</p>
-```
+License information has not been specified for this project yet.
+
+---
+
+<p align="center">
+  Built with care, for people who care how they arrive.
+</p>
