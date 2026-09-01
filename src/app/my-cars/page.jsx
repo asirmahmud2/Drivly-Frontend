@@ -33,6 +33,7 @@ const MyAddedCars = async () => {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${token}`,
             },
+            cache: "no-store",
         }
     );
 

@@ -97,7 +97,7 @@ const LoginPages = () => {
                         {/* IMAGE PANEL — DESKTOP ONLY */}
                         <div className="relative hidden min-h-[600px] overflow-hidden bg-[#0B0B0C] lg:block">
 
-                            <img
+                            <Image
                                 src="https://i.ibb.co.com/7JTRYrSX/Luxury-car-in-architectural-lounge-202608282346.jpg"
                                 alt="Premium Drivly vehicle"
                                 fill
